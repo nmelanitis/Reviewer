@@ -1,0 +1,14 @@
+# Keep the reproducible config and runner script, ignore generated outputs.
+*
+!.gitignore
+!config.json
+!run_mae_full_example.py
+
+# keep some outputs, but not downloaded pdfs
+!billing.txt
+!CitePaper.meta.json
+!Discussion.txt
+!*.md
+!generated_keywords_regexp.py
+!*.csv
+!*.pdf

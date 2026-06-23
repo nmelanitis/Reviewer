@@ -1,0 +1,135 @@
+Comparison of REGEX and LLM classifications
+===========================================
+
+Input file:
+MAEllm/classified_papers_with_review_flags.csv
+
+The file compares two classification runs:
+
+1. MAEllm/classified_papers.csv
+   - Direct LLM classification.
+   - Uses extracted full text when available.
+   - Falls back to abstracts when full text is missing.
+
+2. MAEex/classified_papers.csv
+   - Earlier REGEX-based classification.
+   - Uses generated regular expressions over title + abstract.
+
+
+Meaning of not_yes_in_maeex
+---------------------------
+
+not_yes_in_maeex=no
+means:
+
+    The paper WAS classified as "yes" in MAEex/classified_papers.csv.
+
+Equivalently:
+
+    maeex_verdict == yes
+
+
+not_yes_in_maeex=yes
+means:
+
+    The paper was NOT classified as "yes" in MAEex/classified_papers.csv.
+
+So the MAEex verdict was one of:
+
+    no
+    dont_know
+    missing/unmatched
+
+In the current comparison, all 195 papers matched between the two CSV files, so
+there were no missing/unmatched MAEex rows.
+
+
+Summary counts
+--------------
+
+Total papers compared:
+
+    195
+
+LLM verdict counts:
+
+    yes: 42
+    no: 103
+    dont_know: 50
+
+REGEX / MAEex verdict counts:
+
+    yes: 86
+    no: 31
+    dont_know: 78
+
+
+New LLM yes papers
+------------------
+
+Question:
+
+    How many papers were marked as "yes" with the LLM and were not marked as
+    "yes" with the REGEX classifier?
+
+Answer:
+
+    12
+
+These are papers where:
+
+    verdict == yes
+    not_yes_in_maeex == yes
+
+
+Manual-check overlap among new LLM yes papers
+---------------------------------------------
+
+Question:
+
+    Out of these new LLM yes papers, how many were also listed in the review as
+    requiring manual inspection?
+
+Answer:
+
+    6
+
+These are papers where:
+
+    verdict == yes
+    not_yes_in_maeex == yes
+    listed_for_manual_check_in_review == yes
+
+
+The 6 manually flagged new LLM yes papers are:
+
+1. A robust multi-scale clustering framework for single-cell RNA-seq data analysis
+   DOI: https://doi.org/10.1038/s41598-025-03603-6
+   MAEex verdict: no
+
+2. Advancing animal behavior recognition with self-supervised pre-training on unlabeled data
+   DOI: https://doi.org/10.1038/s41598-025-27736-w
+   MAEex verdict: dont_know
+
+3. Dual stage MRI image restoration based on blind spot denoising and hybrid attention
+   DOI: https://doi.org/10.1186/s12880-024-01437-8
+   MAEex verdict: dont_know
+
+4. Pretraining the Vision Transformer Using Self-Supervised Methods for Vision Based Deep Reinforcement Learning
+   DOI: https://doi.org/10.3233/faia230359
+   MAEex verdict: dont_know
+
+5. Improving generalizability and data efficiency for MHC-I binding peptide predictions through structure-based geometric deep learning
+   DOI: https://doi.org/10.21203/rs.3.rs-3924124/v1
+   MAEex verdict: dont_know
+
+6. Detection of Malaria Infection from parasite-free blood smears
+   DOI: https://doi.org/10.64898/2025.12.29.25343125
+   MAEex verdict: dont_know
+
+
+Comment
+--------
+
+In this case using the REGEXP was less strict, some papers included in 'yes' class must be FALSE POSITIVES
+This can be fixed when we are writing the review, because we have an LLM reading the fulltext and writing it so it will catch the FALSE POSITIVES and not include them (or will include them as backgrounf refs)

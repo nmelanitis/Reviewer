@@ -1,0 +1,43 @@
+{
+  "fetched_at_utc": "2026-06-23T12:15:30.622084+00:00",
+  "requested_target": "10.48550/arxiv.2111.06377",
+  "normalized_target": "doi:10.48550/arxiv.2111.06377",
+  "target": {
+    "openalex_id": "https://openalex.org/W3211983881",
+    "doi": "https://doi.org/10.48550/arxiv.2111.06377",
+    "display_name": "Masked Autoencoders Are Scalable Vision Learners",
+    "type": "preprint",
+    "publication_year": 2021,
+    "publication_date": "2021-11-11",
+    "cited_by_count": 195
+  },
+  "query": {
+    "api_base_url": "https://api.openalex.org",
+    "cited_by_url": "https://api.openalex.org/works?filter=cites:W3211983881",
+    "per_page": 100,
+    "max_results": null,
+    "openalex_query_count": 195
+  },
+  "output": {
+    "csv": "/Users/nme/Documents/pythonProjects/Reviewer/MAEllm/CitePaper.csv",
+    "rows": 195,
+    "columns": [
+      "openalex_id",
+      "display_name",
+      "abstract",
+      "doi",
+      "type",
+      "publication_year",
+      "publication_date",
+      "cited_by_count",
+      "source_display_name",
+      "openalex_url",
+      "landing_page_url",
+      "pdf_url",
+      "best_oa_pdf_url",
+      "oa_url",
+      "is_oa",
+      "content_pdf_url"
+    ]
+  }
+}

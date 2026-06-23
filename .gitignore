@@ -1,0 +1,35 @@
+.venv/
+__pycache__/
+*.py[cod]
+
+# Local secrets. Commit .env.example, never commit real key files.
+.env
+.env.*
+!.env.example
+
+# Local logs
+Overview
+
+# Generated pipeline outputs
+CitePaper.csv
+CitePaper.meta.json
+classified_papers.csv
+regex_context.md
+review_prompt.md
+raw.json
+review_draft_gemini*
+review_prompt_all_yes_abstracts.md
+review_prompt_fulltext.md
+
+# Downloaded/extracted full text assets
+open-pdfs/
+open-pdfs-text/
+
+# MAEllm files- example use case
+MAEllm/llm-classification-raw/
+MAEllm/open-pdfs/
+MAEllm/open-pdfs-text/
+MAEllm/*.log
+!MAEllm/*.csv
+!MAEllm/*.json
+!MAEllm/*.md

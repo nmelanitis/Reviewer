@@ -1,0 +1,53 @@
+{
+  "description": "Full reproducible MAE citation-review example using OpenAI API direct LLM classification on extracted full texts. Stops after review_prompt_fulltext.md.",
+  "target": "10.48550/arxiv.2111.06377",
+  "output_dir": "MAEllm",
+  "provider": "openai",
+  "model": "gpt-5.4-mini",
+  "fetch": {
+    "per_page": 100,
+    "max_results": null
+  },
+  "pdfs": {
+    "max_pdfs": null,
+    "force_download": false,
+    "timeout_seconds": 45
+  },
+  "extract_text": {
+    "max_pdfs": null,
+    "force_extract": false
+  },
+  "llm_classify": {
+    "evidence_mode": "fulltext",
+    "abstract_chars": "all",
+    "full_text_chars": 30000,
+    "max_output_tokens": 800,
+    "retries": 3,
+    "retry_sleep_seconds": 30,
+    "resume": true,
+    "raw_dir": "llm-classification-raw"
+  },
+  "review_prompt": {
+    "yes_only": true,
+    "max_yes": 999999,
+    "include_dont_know": false,
+    "max_dont_know": 0,
+    "include_no": false,
+    "max_no": 0,
+    "abstract_chars": "all",
+    "full_text_chars": "all"
+  },
+  "fallbacks_when_unspecified": {
+    "provider": "openai",
+    "model": "gpt-5.4-mini",
+    "fetch.max_results": "null means fetch all citing papers returned by OpenAlex",
+    "pdfs.max_pdfs": "null means attempt all open PDF URLs",
+    "extract_text.max_pdfs": "null means extract all downloaded/skipped PDFs",
+    "llm_classify.full_text_chars": "30000 means each classification call gets at most 30000 extracted full-text characters for that paper",
+    "llm_classify.resume": "true means existing classified rows are reused if the run is restarted",
+    "review_prompt.yes_only": "true means final review evidence includes confirmed yes papers only",
+    "review_prompt.abstract_chars": "all means include full abstracts for selected papers",
+    "review_prompt.full_text_chars": "all means include full extracted text for selected yes papers",
+    "llm_write_review": "not run in this example by request"
+  }
+}

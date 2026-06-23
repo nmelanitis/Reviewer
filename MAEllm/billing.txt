@@ -1,0 +1,3 @@
+The run cost 0.33dollars on 23-06-26 through API with gpt-5.4-mini
+This cost includes the LLM classification cost
+We did not run the LLM to write the review through API
