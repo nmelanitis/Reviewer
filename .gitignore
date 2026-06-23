@@ -2,6 +2,9 @@
 __pycache__/
 *.py[cod]
 
+# macOS
+.DS_Store
+
 # Local secrets. Commit .env.example, never commit real key files.
 .env
 .env.*

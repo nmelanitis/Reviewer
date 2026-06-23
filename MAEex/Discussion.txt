@@ -1,0 +1,24 @@
+A discussion on the points MAEex(ample) demonstrates:
+
+The code is organized so that prompts are generated and run either manually by human intervention (ie without APIs) or automatically (via APIs). The design aims at i) allowing local models to be used, reducing dependency to cloud LLM providers and costs, ii) reproducibility, iii) a well defined and  documented review method.
+
+A key step is constructing (via an LLM prompt) a regular expression to classify papers as using/maybe using/not using the paper under review. 
+
+By re-parsing the papers with an LLM we noticed that 'maybe' papers were moved to 'yes'. So, we can argue to replace the classification step with an LLM reading the papers and deciding if the approach has been used or not. However, this reduces the explainability and reproducibility of the review approach, by swapping a rule-based procedure with a 'black box' LLM. Also API calls/costs can go up, because this is a step that is crucial to automate. 
+
+My suggestion on the classification step is: implement another execution path that refines the classification with a systematically constructed LLM prompt. Like we construct the regex prompt now. 
+
+Now turning to the LLM-review-writing step: I find it s better to take the automatically generated prompt, and give it manually to an LLM along with some instructions on the style, references etc.
+
+Included in this folder: 
+
+1)[BEST]the review written with the review_prompt + some style instruction on  (paid) gpt 5.5 (manually, no API)
+its the best written 
+
+2)A revision of review1) by codex, instructing it to go through the full texts again to add more papers (missed papers not classified as using the MAE paper). It has more content but the style is much poorer. 
+
+ FILES:
+ MAEex/review_draft.md: first review written by API call
+ MAEex/Uses of the Masked Autoencoder Model in Later Literature.pdf: revision-1, by gpt 5.5 and human style direction
+ MAEex/Uses_of_MAE_expanded_review2.pdf: revision-2, including MORE papers classified as relevant by LLM inspection
+ newly_added_expanded_review_papers_classification.csv: index of the extra papers used in revision 2, these are the papers that were classified as USING MAE only after LLM INSPECTION (REGEXP FAILED TO INCLUDE THOSE)

@@ -4,6 +4,18 @@ Reviewer is a small citation-review pipeline. Given one target paper, it fetches
 papers that cite it, prepares regex/classification context, classifies whether
 citing papers appear to use the target paper, and builds review-writing prompts.
 
+## Examples
+
+Two examples demonstrate using the tool, to review all papers that cite and **use** "Masked Autoencoders Are Scalable Vision Learners" (MAE):
+1. in MAEex sub-dir, we classify papers as using/not using MAE approach with a REG EXP. Run MAEex/run_mae_full_example.py 
+2. in MAEllm sub-dir, we classify papers as using/not using MAE approach by prompting an LLM. Run MAEllm/run_mae_llm_fulltext_example.py
+
+Most important output files are included in MAEex and MAEllm directories, other are ommited. 
+
+Take a look at MAEex/Discussion.txt and MAEllm/CompareREGEx-LLM.txt files for discussion points and a comparison of the two (regex, llm) classification approaches.
+
+CONFIG: Dont forget to set at least one cloud llm API key (see .env.example). Gemini gives a free API key, but it gets busy!
+
 ## Setup
 
 ```bash
