@@ -16,6 +16,25 @@ Take a look at MAEex/Discussion.txt and MAEllm/CompareREGEx-LLM.txt files for di
 
 CONFIG: Dont forget to set at least one cloud llm API key (see .env.example). Gemini gives a free API key, but it gets busy!
 
+## License
+
+This project is released under the Creative Commons
+Attribution-NonCommercial 4.0 International license (`CC BY-NC 4.0`).
+
+You may use, share, and adapt it for non-commercial purposes with attribution.
+Commercial use requires separate written permission.
+
+Suggested attribution:
+
+```text
+Reviewer citation-review pipeline.
+Licensed under CC BY-NC 4.0.
+https://creativecommons.org/licenses/by-nc/4.0/
+Please cite the repository URL when reusing or adapting this work.
+```
+
+See [LICENSE](LICENSE) for details.
+
 ## Setup
 
 ```bash
