@@ -16,6 +16,14 @@ Take a look at MAEex/Discussion.txt and MAEllm/CompareREGEx-LLM.txt files for di
 
 CONFIG: Dont forget to set at least one cloud llm API key (see .env.example). Gemini gives a free API key, but it gets busy!
 
+## Documentation 
+
+Special README files explain:
+1. Classify-papers-as-relevant-README.md: How we filter papers as using or not using the approach of the target paper? Different strategies are implemented in code and explained in this markdown file
+2. Control-Review-size.README.md: This note explains how to control the size of prompts and outputs
+3. This file shows the main Reviewer execution paths. The paths are intentionally different because regex classification uses abstracts/titles/metadata, while direct LLM full-text classification needs extracted full text before it can
+ lassify papers.
+
 ## License
 
 This project is released under the Creative Commons
